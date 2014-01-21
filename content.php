@@ -10,7 +10,7 @@
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php _once_posted_on(); ?>
+			<?php once_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -36,7 +36,7 @@
 			<?php
 				/* translators: used between list items, there is a space after the comma */
 				$categories_list = get_the_category_list( __( ', ', 'once' ) );
-				if ( $categories_list && _once_categorized_blog() ) :
+				if ( $categories_list && once_categorized_blog() ) :
 			?>
 			<span class="cat-links">
 				<?php printf( __( 'Posted in %1$s', 'once' ), $categories_list ); ?>

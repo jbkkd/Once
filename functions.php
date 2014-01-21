@@ -9,10 +9,10 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
+	$content_width = 848; /* pixels */
 }
 
-if ( ! function_exists( '_once_setup' ) ) :
+if ( ! function_exists( 'once_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -20,13 +20,11 @@ if ( ! function_exists( '_once_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function _once_setup() {
+function once_setup() {
 
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Once, use a find and replace
-	 * to change 'once' to the name of your theme in all the template files
 	 */
 	load_theme_textdomain( 'once', get_template_directory() . '/languages' );
 
@@ -49,18 +47,18 @@ function _once_setup() {
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 
 	// Setup the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( '_once_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'once_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 }
-endif; // _once_setup
-add_action( 'after_setup_theme', '_once_setup' );
+endif; // once_setup
+add_action( 'after_setup_theme', 'once_setup' );
 
 /**
  * Register widgetized area and update sidebar with default widgets.
  */
-function _once_widgets_init() {
+function once_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'once' ),
 		'id'            => 'sidebar-1',
@@ -70,12 +68,12 @@ function _once_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 }
-add_action( 'widgets_init', '_once_widgets_init' );
+add_action( 'widgets_init', 'once_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function _once_scripts() {
+function once_scripts() {
 	wp_enqueue_style( '_once-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( '_once-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
@@ -86,7 +84,7 @@ function _once_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', '_once_scripts' );
+add_action( 'wp_enqueue_scripts', 'once_scripts' );
 
 /**
  * Implement the Custom Header feature.

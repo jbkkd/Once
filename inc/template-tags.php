@@ -7,13 +7,13 @@
  * @package Once
  */
 
-if ( ! function_exists( '_once_paging_nav' ) ) :
+if ( ! function_exists( 'once_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
  * @return void
  */
-function _once_paging_nav() {
+function once_paging_nav() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
@@ -37,13 +37,13 @@ function _once_paging_nav() {
 }
 endif;
 
-if ( ! function_exists( '_once_post_nav' ) ) :
+if ( ! function_exists( 'once_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
  *
  * @return void
  */
-function _once_post_nav() {
+function once_post_nav() {
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -65,13 +65,13 @@ function _once_post_nav() {
 }
 endif;
 
-if ( ! function_exists( '_once_comment' ) ) :
+if ( ! function_exists( 'once_comment' ) ) :
 /**
  * Template for comments and pingbacks.
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  */
-function _once_comment( $comment, $args, $depth ) {
+function once_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 
 	if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
@@ -123,13 +123,13 @@ function _once_comment( $comment, $args, $depth ) {
 	<?php
 	endif;
 }
-endif; // ends check for _once_comment()
+endif; // ends check for once_comment()
 
-if ( ! function_exists( '_once_posted_on' ) ) :
+if ( ! function_exists( 'once_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function _once_posted_on() {
+function once_posted_on() {
 	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
@@ -158,7 +158,7 @@ endif;
 /**
  * Returns true if a blog has more than 1 category.
  */
-function _once_categorized_blog() {
+function once_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
@@ -172,20 +172,20 @@ function _once_categorized_blog() {
 	}
 
 	if ( '1' != $all_the_cool_cats ) {
-		// This blog has more than 1 category so _once_categorized_blog should return true.
+		// This blog has more than 1 category so once_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so _once_categorized_blog should return false.
+		// This blog has only 1 category so once_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in _once_categorized_blog.
+ * Flush out the transients used in once_categorized_blog.
  */
-function _once_category_transient_flusher() {
+function once_category_transient_flusher() {
 	// Like, beat it. Dig?
 	delete_transient( 'all_the_cool_cats' );
 }
-add_action( 'edit_category', '_once_category_transient_flusher' );
-add_action( 'save_post',     '_once_category_transient_flusher' );
+add_action( 'edit_category', 'once_category_transient_flusher' );
+add_action( 'save_post',     'once_category_transient_flusher' );

@@ -23,7 +23,7 @@ If you want to keep it simple, head over to http://underscores.me and generate y
 If you want to set things up manually, download `_s` from github. The first thing you want to do is copy the `_s` directory and change the name to something else - Like, say, `megatherium` - then you'll need to do a five-step find and replace on the name in all the templates.
 
 1. Search for `'once'` (inside single quotations) to capture the text domain.
-2. Search for `_once_` to capture all the function names.
+2. Search for `once_` to capture all the function names.
 3. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
 4. Search for `_once-` to capture prefixed handles.
 5. Search for `Text Domain: Once` in style.css.
@@ -31,7 +31,7 @@ If you want to set things up manually, download `_s` from github. The first thin
 OR
 
 * Search for: `'once'` and replace with: `'megatherium'`
-* Search for: `_once_` and replace with: `megatherium_`
+* Search for: `once_` and replace with: `megatherium_`
 * Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Megatherium</code>
 * Search for: `_once-` and replace with: `megatherium-`
 * Search for: `Text Domain: Once` and replace with: `Text Domain: megatherium` in style.css.

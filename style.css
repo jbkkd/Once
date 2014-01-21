@@ -1,9 +1,8 @@
 /*
 Theme Name: Once
-Theme URI: http://underscores.me/
-Author: Automattic
-Author URI: http://automattic.com/
-Description: Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if you like. I'm a theme meant for hacking so don't use me as a <em>Parent Theme</em>. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Author: Omer Korner
+Author URI: http://omerkorner.com
+Description: Theme built for Ayelets course site
 Version: 1.0-wpcom
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -58,7 +57,7 @@ html {
 	box-sizing:         border-box;
 }
 body {
-	background: #fff;
+	background: #fef2ec;
 }
 article,
 aside,
@@ -116,6 +115,35 @@ textarea {
 	font-size: 1.6rem;
 	line-height: 1.5;
 }
+
+div.site {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+header.site-header {
+    color: #fbccb2;
+    font-family: 'Rockwell';
+    font-size: 1.2em;
+    max-width: 848px;
+    padding: 21px;
+    margin: 0 auto;
+}
+
+input[type=search] {
+    line-height: 14px;
+    font-size: 0.1em;
+    background-color: #fbccb2;
+    width: 142px;
+}
+
+div.site-content {
+    max-width: 848px;
+    margin: 0 auto;
+    border: 1px solid lightgray;
+    padding: 8px 18px;
+}
+
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
@@ -617,4 +645,11 @@ object {
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
 .infinity-end.neverending .site-footer {
 	display: block;
+}
+
+/* Fonts
+----------------------------------------------- */
+@font-face {
+    font-family: 'Rockwell';
+    src: url('fonts/rockwell.ttf');
 }

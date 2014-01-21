@@ -4,7 +4,7 @@
  *
  * The area of the page that contains both current comments
  * and the comment form. The actual display of comments is
- * handled by a callback to _once_comment() which is
+ * handled by a callback to once_comment() which is
  * located in the inc/template-tags.php file.
  *
  * @package Once
@@ -43,12 +43,12 @@ if ( post_password_required() ) {
 		<ol class="comment-list">
 			<?php
 				/* Loop through and list the comments. Tell wp_list_comments()
-				 * to use _once_comment() to format the comments.
+				 * to use once_comment() to format the comments.
 				 * If you want to override this in a child theme, then you can
-				 * define _once_comment() and that will be used instead.
-				 * See _once_comment() in inc/template-tags.php for more.
+				 * define once_comment() and that will be used instead.
+				 * See once_comment() in inc/template-tags.php for more.
 				 */
-				wp_list_comments( array( 'callback' => '_once_comment' ) );
+				wp_list_comments( array( 'callback' => 'once_comment' ) );
 			?>
 		</ol><!-- .comment-list -->
 
