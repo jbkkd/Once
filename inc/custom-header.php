@@ -25,16 +25,21 @@
  * @package Once
  */
 function once_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'once_custom_header_args', array(
-		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1000,
-		'height'                 => 250,
-		'flex-height'            => true,
-		'wp-head-callback'       => 'once_header_style',
-		'admin-head-callback'    => 'once_admin_header_style',
-		'admin-preview-callback' => 'once_admin_header_image',
-	) ) );
+    $header_args = array(
+        'default-image'          => '',
+        'default-text-color'     => '515151',
+        'width'                  => 347,
+        'height'                 => 136,
+        'flex-width'             => false,
+        'flex-height'            => false,
+        'random-default'         => false,
+        'header-text'            => true,
+        'uploads'                => true,
+        'wp-head-callback'       => 'once_header_style',
+        'admin-head-callback'    => 'once_admin_header_style',
+        'admin-preview-callback' => 'once_admin_header_image',
+    );
+	add_theme_support( 'custom-header', $header_args);
 }
 add_action( 'after_setup_theme', 'once_custom_header_setup' );
 

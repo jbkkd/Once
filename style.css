@@ -126,7 +126,8 @@ header.site-header {
     font-family: 'Rockwell';
     font-size: 1.2em;
     max-width: 848px;
-    padding: 21px;
+    padding-top: 21px;
+    padding-left: 21px;
     margin: 0 auto;
 }
 

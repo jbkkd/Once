@@ -5,6 +5,7 @@
  * Displays all of the <head> section and everything up till <div id="content">
  *
  * @package Once
+ * @since Once 1.0
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -26,6 +27,9 @@
             Upcycled Fashion Brand
 		</span>
         <span class="site-branding">
+            <?php if ( get_header_image() ) : ?>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php header_image(); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
+            <?php endif; ?>
 			<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
 			<span class="site-description"><?php bloginfo( 'description' ); ?></span>
         </span>
